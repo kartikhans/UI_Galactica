@@ -247,21 +247,23 @@
       customBtn.addEventListener("click", function() {
         realbutton.click();
       });
-
+      var count = 0;
       realbutton.addEventListener("change", function() {
         // set fso = CreateObject("Scripting.FileSystemObject");
         // set s = fso.CreateTextFile("test.txt", True);
-        if (realbutton.value) {
+        var filesUploaded = realbutton.files;
+        if (filesUploaded.length != 0) {
           // var fileinputs = [];
           // for(var i=0;i<realbutton.files.length;i++){
           //   fileinputs.push(realbutton.files[i]);
           // }
           list = [];
-          for(var x=0;x<realbutton.value.length;x++){
-            list.push(realbutton.value[x]);
+          for(var x=0;x<filesUploaded.length;x++){
+            list.push(filesUploaded[x].name);
+            list.push("\n");
           }
-          var blob = new Blob([realbutton.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]],{type: "text/plain"});
- 			    download(blob,"text-file.txt");
+          var blob = new Blob(list,{type: "text/plain"});
+ 			    download(blob,"text-fileccc.txt");
           customtxt.innerHTML = realbutton.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
         } else {
           customtxt.innerHTML = "No file chosen, yet.";
