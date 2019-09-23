@@ -4,13 +4,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Galactica-Search</title>
     <style>
 .dropdown-submenu {
   position: relative;
@@ -21,11 +24,13 @@
   left: 100%;
   margin-top: -1px;
 }
-/* .btn {
-    padding: 10px 20px;
-    font-size: 30px;
+
+.btn {
+    position: relative;
     width: 100%;
-} */
+}
+
+{% load static %}
 </style>
   </head>
   <body>
@@ -38,7 +43,7 @@
           </div>
           <div class="row">
             <div class="container"><div class="ml-3 col-md-8 px-0">
-              <img src="import.png" class="img-fluid">
+              <img src="{% static "search/import.png" %}" class="img-fluid">
             </div>
           </div>
           </div>
@@ -46,7 +51,7 @@
           </div>
           <div class="row">
             <div class="container"><div class="ml-3 col-md-8 px-0">
-              <img src="algo.png" class="img-fluid" >
+              <img src="{% static "search/algo.png" %}" class="img-fluid" >
             </div>
           </div>
           </div>
@@ -54,7 +59,7 @@
           </div>
           <div class="row">
             <div class="container"><div class="ml-4 col-md-8 px-0">
-              <img src="159461-200.png" class="img-fluid" >
+              <img src="{% static "search/159461-200.png" %}" class="img-fluid" >
             </div>
           </div>
           </div>
@@ -68,9 +73,13 @@
         <input type="file" id="read-file" hidden="hidden" multiple/>
         <a style="text-decoration:none" id="upload-button" href="#">
         <div class="row">
-          <div class="col">
-            <h3 id="upload-text" class="mt-3 ml-3" style="color:white"> Import Image</h3>
-          </div>
+          <!-- <button type="button" class="btn" style="color:white;font-size: 30px" data-toggle="dropdown"> -->
+          <!-- <h3 id="upload-text" class="mt-3 ml-3" style="color:white"> Import Image</h3> -->
+          <!-- </button> -->
+          <button type="button" class="btn form-group" style="color: #3a3a3a;font-size: 30px">
+              <h3 href="{% static "search/upload.js" %}" onclick="$('#pro-image').click()"  class="mt-3 ml-3" style="color:white">Import Image</h3>
+              <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple>
+          </button>
         </div>
       </a>
       <div class="mt-5 row">
@@ -230,64 +239,7 @@
         </div>
       </div>
     </div>
-    <script>
-    $(document).ready(function(){
-      $('.dropdown-submenu a.test').on("click", function(e){
-        $(this).next('ul').toggle();
-        e.stopPropagation();
-        e.preventDefault();
-      });
-    });
-    </script>
-    <script type="text/javascript">
-      var realbutton = document.getElementById("read-file")
-      const customBtn = document.getElementById("upload-button")
-      const customtxt = document.getElementById("upload-text")
-      var list=[];
-      customBtn.addEventListener("click", function() {
-        realbutton.click();
-      });
-      var count = 0;
-      realbutton.addEventListener("change", function() {
-        // set fso = CreateObject("Scripting.FileSystemObject");
-        // set s = fso.CreateTextFile("test.txt", True);
-        var filesUploaded = realbutton.files;
-        if (filesUploaded.length != 0) {
-          // var fileinputs = [];
-          // for(var i=0;i<realbutton.files.length;i++){
-          //   fileinputs.push(realbutton.files[i]);
-          // }
-          list = [];
-          for(var x=0;x<filesUploaded.length;x++){
-            list.push(filesUploaded[x].name);
-            list.push("\n");
-          }
-          var blob = new Blob(list,{type: "text/plain"});
- 			    download(blob,"text-fileccc.txt");
-          customtxt.innerHTML = realbutton.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-        } else {
-          customtxt.innerHTML = "No file chosen, yet.";
-        }
-        function download(blob,name) {
-				var url = URL.createObjectURL(blob),
-					div = document.createElement("div"),
-					anch = document.createElement("a");
 
-				document.body.appendChild(div);
-				div.appendChild(anch);
-
-				anch.innerHTML = "&nbsp;";
-				div.style.width = "0";
-				div.style.height = "0";
-				anch.href = url;
-				anch.download = name;
-
-				var ev = new MouseEvent("click",{});
-				anch.dispatchEvent(ev);
-				document.body.removeChild(div);
-			}
-      });
-    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -295,3 +247,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+<!-- <div class="container">
+
+    <div class="preview-images-zone">
+        <div class="preview-image preview-show-1">
+            <div class="image-cancel" data-no="1">x</div>
+            <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
+            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
+        </div>
+        <div class="preview-image preview-show-2">
+            <div class="image-cancel" data-no="2">x</div>
+            <div class="image-zone"><img id="pro-img-2" src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/flip.jpg"></div>
+            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="2" class="btn btn-light btn-edit-image">edit</a></div>
+        </div>
+        <div class="preview-image preview-show-3">
+            <div class="image-cancel" data-no="3">x</div>
+            <div class="image-zone"><img id="pro-img-3" src="http://i.stack.imgur.com/WCveg.jpg"></div>
+            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="3" class="btn btn-light btn-edit-image">edit</a></div>
+        </div>
+    </div>
+</div> -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
