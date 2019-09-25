@@ -1,273 +1,247 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Galactica-Search</title>
-    <style>
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -1px;
-}
-
-.btn {
-    position: relative;
-    width: 100%;
-}
-
+<!DOCTYPE html>
+<html>
 {% load static %}
-</style>
-  </head>
-  <body>
-    <div class="wrapper" style="height : 916px">
-      <div class="row">
-        <div class="col-1 " style="height : 916px;background-color : #595959">
-          <div class="row">
-            <div class="col" style="height:80px">
-            </div>
-          </div>
-          <div class="row">
-            <div class="container"><div class="ml-3 col-md-8 px-0">
-              <img src="{% static "search/import.png" %}" class="img-fluid">
-            </div>
-          </div>
-          </div>
-          <div class="row" style="height: 60px">
-          </div>
-          <div class="row">
-            <div class="container"><div class="ml-3 col-md-8 px-0">
-              <img src="{% static "search/algo.png" %}" class="img-fluid" >
-            </div>
-          </div>
-          </div>
-          <div class="row" style="height: 230px">
-          </div>
-          <div class="row">
-            <div class="container"><div class="ml-4 col-md-8 px-0">
-              <img src="{% static "search/159461-200.png" %}" class="img-fluid" >
-            </div>
-          </div>
-          </div>
-        </div>
-        <div class="col-3" style="background-color: #3a3a3a">
-          <div class="row">
-          <div class="col" align="center" style="color: #0433ff; height:80px; text-align:center">
-            <h3 class="mt-3" style="color:#0433ff"> Galactica.Ai</h3>
-          </div>
-        </div>
-        <input type="file" id="read-file" hidden="hidden" multiple/>
-        <a style="text-decoration:none" id="upload-button" href="#">
-        <div class="row">
-          <!-- <button type="button" class="btn" style="color:white;font-size: 30px" data-toggle="dropdown"> -->
-          <!-- <h3 id="upload-text" class="mt-3 ml-3" style="color:white"> Import Image</h3> -->
-          <!-- </button> -->
-          <button type="button" class="btn form-group" style="color: #3a3a3a;font-size: 30px">
-              <h3 href="{% static "search/upload.js" %}" onclick="$('#pro-image').click()"  class="mt-3 ml-3" style="color:white">Import Image</h3>
-              <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple>
-          </button>
-        </div>
-      </a>
-      <div class="mt-5 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;font-size: 30px" data-toggle="dropdown">
-      <span> Apply Algorithms</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#"></a>
-      <a class="dropdown-item" href="#">Link 2</a>
-      <a class="dropdown-item" href="#">Link 3</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> Small Vehicles</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Apply</a>
-      <a class="dropdown-item" href="#">Remove</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> Large Vehicle</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Apply</a>
-      <a class="dropdown-item" href="#">Remove</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> Bridge</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Apply</a>
-      <a class="dropdown-item" href="#">Remove</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> Plane</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Apply</a>
-      <a class="dropdown-item" href="#">Remove</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> Helicopter</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Apply</a>
-      <a class="dropdown-item" href="#">Remove</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> Ship</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Apply</a>
-      <a class="dropdown-item" href="#">Remove</a>
-    </div>
-  </div>
-      </div>
-      <!-- <div class="row" style="height:150px">
-      </div> -->
-      <div class="row">
-        <h3 class="mt-3 ml-3" style="color:white"> Export</h3>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;" data-toggle="dropdown">
-      <span> CSV</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Download</a>
-      <a class="dropdown-item" href="#">Mail</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;font-size:20px" data-toggle="dropdown">
-      <span> Word</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Download</a>
-      <a class="dropdown-item" href="#">Mail</a>
-    </div>
-  </div>
-      </div>
-      <div class="ml-4 row">
-        <div class="dropdown">
-    <button type="button" class="btn dropdown-toggle" style="color:white;font-size:20px" data-toggle="dropdown">
-      <span> Excel</span>
-    </button>
-    <div class="dropdown-menu" style="font-size: 20px;width:100%">
-      <a class="dropdown-item" href="#">Download</a>
-      <a class="dropdown-item" href="#">Mail</a>
-    </div>
-  </div>
-      </div>
-        </div>
-        <div class="col-8" style="background-color:#3a3a3a">
-          <div class="row">
-            <div class="col" style="height : 50px">
-            </div>
-          </div>
-          <!-- <a style="text-decoration:none" href="#"> -->
-          <div class="row ">
-            <div class="col-4" style="height: 70px;background-color :grey; text-align:center">
-              <a style="text-decoration:none" href="#">
-              <h3 class="mt-3 text-center" style="color:#595959"> Search to upload file</h3>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Galactica-Sat</title>
+  <!-- Bootstrap core CSS -->
+  <link href="{% static "search/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static "search/css/small-business.css" %}" rel="stylesheet">
+</head>
+
+<body class="bg-dark">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-primary" href="https://www.galactica.ai" contenteditable="true">&nbsp;Galactica.Ai<br></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span>
             </a>
-            </div>
-            <div class="col-2" style="height: 70px;background-color: #595959">
-              <h4 class="mt-1 text-center" style="color:white">Accuracy:</h4>
-              <h4 class="mt-1 text-center" style="color: #0433ff"> 94%</h4>
-            </div>
-            <div class="col-3" style="height: 70px;background-color: #595959">
-              <h4 class="mt-1 text-center" style="color:white">Object:</h4>
-              <h4 class="mt-1 text-center" style="color: #0433ff"> Small Vehicle</h4>
-            </div>
-            <div class="col-3" style="height: 70px;background-color: #595959">
-              <h4 class="mt-1 text-center" style="color: white">Detections:</h4>
-              <h4 class="mt-1 text-center" style="color: #0433ff">4</h4>
-
-            </div>
-          </div>
-        <!-- </a> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="my-0 bg-secondary py-2 border-light" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md- h-100 w-75 bg-secondary col-md-12" style="">
           <div class="row">
-            <div class="col" style="height:50px;background-color:#595959">
-              <h6 class="mt-3 ml-3" style="color: silver"> Geolocation: LAT: 30.1841 N; LONG: 71.4131 E</h6>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12 border-bottom border-dark" style="">
+                  <div class="row">
+                    <div class="col-md-12" style="">
+                      <h2 class="w-100 text-light">GALACTICA SATELLITE SEARCH</h2>
+                    </div>
+                  </div>
+                  <form class="form-inline my-1 mx-4 py-2 px-4 pl-5">
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search Uploaded Images">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
             </div>
-            <div class="col" style="height:50px;background-color:#595959;">
-              <h6 class="mt-3 ml-3" style="color: silver"> Sensor Type: Panchromatic</h6>
+            <div class="col-md-6 border-bottom border-dark" style="">
+              <div class="row">
+                <div class="col-md-4" style="">
+                  <h6 class="display-5 text-white py-3 my-0 text-center">OBJECTS</h6>
+                </div>
+                <div class="col-md-4">
+                  <h6 class="display-5 text-white py-3 my-0 text-center">ACCURACY</h6>
+                </div>
+                <div class="col-md-4" style="">
+                  <h6 class="display-5 text-white py-3 my-0 text-center">DETETCTIONS<br></h6>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4" style=""><a class="btn btn-lg mx-1 btn-block btn-outline-info" href="#" style="	background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));	background-position: top left;	background-size: 100%;	background-repeat: repeat;" contenteditable="false">AIRPLANE</a></div>
+                <div class="col-md-4" style=""><a class="btn btn-lg mx-1 btn-block btn-outline-info" href="#" style="	background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));	background-position: top left;	background-size: 100%;	background-repeat: repeat;">88 %</a></div>
+                <div class="col-md-4" style=""><a class="btn btn-lg mx-1 btn-block btn-outline-info" href="#" style="	background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));	background-position: top left;	background-size: 100%;	background-repeat: repeat;">12</a></div>
+              </div>
             </div>
           </div>
-          <div class="row" style="height:200px; background-color:#3a3a3a">
+          <div class="row">
+            <div class="bg-secondary col-md-2" style=""></div>
+            <div class="my-2 col-md-6" style="">
+              <div class="row">
+                <div class="col-md-4">
+                  <h4 class="text-left text-capitalize text-light">GeoLocation :</h4>
+                </div>
+                <div class="col-md-8"><a class="btn btn-outline-dark" href="#">Lat:30.1841 'N, Long: 74.4131 'E<br></a></div>
+              </div>
+            </div>
+            <div class="my-2 col-md-4" style="">
+              <div class="row">
+                <div class="col-md-4">
+                  <h4 class="text-left text-capitalize text-light">Sensor:</h4>
+                </div>
+                <div class="col-md-8"><a class="btn btn-outline-dark" href="#">Panchromatic<br></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 bg-secondary" style=""></div>
+            <div class="border-light col-md-6 border-left-0" style=""></div>
+            <div class="col-md-4 border-light" style=""></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 bg-dark">
+              <div class="row bg-dark">
+                <div class="col-md-2 mx-0 my-0 px-0 py-0">
+                <!-- {% block import %} -->
+                 <button class="btn btn-outline-primary btn-block btn-lg w-100" data-toggle="modal" data-target="#import-modal">Import Images</button>
+                <!-- {% endblock %} -->
+               </div>
+               <!-- Modal -->
+              <div id="import-modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title"> Upload Images </h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="upload-form" action="" method = "POST" enctype="multipart/form-data"> {% csrf_token %}
+                    		<input type="file" name ="file" accept="image/*" multiple>
+                        <button type="submit">Upload</button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+                <div class="col-md-10 border-left border-light"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-2 bg-dark mx-0 px-0 py-0">
+                  <div class="list-group list-group-flush mx-0 my-5 py-0 px-0">
+                    <a href="#" class="list-group-item list-group-item-action active w-100 text-center">APPLY ALGORITHMS</a>
+                    <a href="#" class="list-group-item list-group-item-action">Small Vehicle</a>
+                    <a href="#" class="list-group-item list-group-item-action">Large Vehicle</a>
+                    <a href="#" class="list-group-item list-group-item-action">AirPlane</a>
+                    <a href="#" class="list-group-item list-group-item-action">Helicopter</a>
+                    <a href="#" class="list-group-item list-group-item-action">Ship</a>
+                    <a href="#" class="list-group-item list-group-item-action">Bridge</a>
+                  </div>
+                  <div class="row"></div>
+                </div>
+                <div class="col-md-10 border-light border-left">
+                  <div class="col-md-12 bg-light"><img class="img-fluid d-block mx-auto my-3 py-2 bg-light" src="https://static.pingendo.com/cover-moon.svg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row bg-secondary">
+            <div class="col-md-2 bg-dark w-100 px-0 py-0 mx-0 my-0" style=""><a class="btn btn-outline-primary btn-block btn-lg w-100" href="#">Export<br></a></div>
+            <div class="col-md-10 bg-dark border-left border-light" style=""></div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
-
-
-
-<!-- <div class="container">
-
-    <div class="preview-images-zone">
-        <div class="preview-image preview-show-1">
-            <div class="image-cancel" data-no="1">x</div>
-            <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
-            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+  </div>
+  <div class="py-5 text-center text-white h-100 align-items-center d-flex" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://static.pingendo.com/cover-bubble-dark.svg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container py-5" id="about-us">
+      <div class="row">
+        <div class="mx-auto col-lg-8 col-md-10">
+          <h1 class="display-3 mb-4">ABOUT US</h1>
+          <p class="lead mb-5">At GALACTICA.AI, we are a group of researchers and entrepreneurs with a fondness for all thing’s deep tech and sci-fi. We aim to solve real world remote sensing problems through Galactica.AI platform by bringing the best minds in research and academia along with strategic industry partnership Our R&amp;D team, based out of IIT Delhi is building the core Artificial Intelligence &amp; Machine Learning software infrastructure video data and doing operations including map generation, orthorectification, photogrammetry, object detection, object tracking, change detection &amp; more.</p> <a class="btn btn-lg btn-primary mx-1" href="https://www.galactica.ai">Take me there</a>
         </div>
-        <div class="preview-image preview-show-2">
-            <div class="image-cancel" data-no="2">x</div>
-            <div class="image-zone"><img id="pro-img-2" src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/flip.jpg"></div>
-            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="2" class="btn btn-light btn-edit-image">edit</a></div>
-        </div>
-        <div class="preview-image preview-show-3">
-            <div class="image-cancel" data-no="3">x</div>
-            <div class="image-zone"><img id="pro-img-3" src="http://i.stack.imgur.com/WCveg.jpg"></div>
-            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="3" class="btn btn-light btn-edit-image">edit</a></div>
-        </div>
+      </div>
     </div>
-</div> -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </div>
+  <div class="container">
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-12">
+      </div>
+      <!-- /.col-lg-8 -->
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+    <!-- Call to Action Well -->
+    <!-- Content Row -->
+    <div class="row"></div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white" contenteditable="true">Copyright © Galactica.Ai 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-primary" contenteditable="false" href="https://www.galactica.ai">&nbsp;Galactica.Ai<br></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <!-- /.container -->
+  <!-- Footer -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static "search/vendor/jquery/jquery.min.js" %}"></script>
+  <script src="{% static "search/vendor/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+  <script src="{% static "search/vendor/jquery/jquery.min.js"%}"></script>
+  <script src="{% static "search/vendor/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>

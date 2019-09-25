@@ -1,0 +1,6 @@
+*.DS_Store
+*.pyc
+*.png
+*.jpg
+test_html/*
+form-rendering-examples/*

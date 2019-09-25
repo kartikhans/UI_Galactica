@@ -123,4 +123,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT="/var/www/example.com/static/"
+STATIC_ROOT="/home/galactica/Galactica/Production/galactica_sat/staticfiles"

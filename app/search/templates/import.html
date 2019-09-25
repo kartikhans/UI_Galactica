@@ -1,0 +1,8 @@
+{% extends "home.html" %}
+
+{% block import %}My amazing blog
+	<form id="upload-form" action= "../upload" method = "POST" enctype="multipart/form-data">
+		<input type="file" name ="file" accept="image/*" multiple>
+		<input type='submit' value="send">
+	</form>
+{% endblock %}
