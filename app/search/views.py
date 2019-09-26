@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import time
 import os
 
+import pandas as pd
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
@@ -18,8 +19,8 @@ def generate_media_url():
     media_path = os.path.join(BASE_DIR,"media")
     if not os.path.exists(media_path):
         os.mkdir(media_path);
-
-    os.mkdir(os.path.join(media_path,timestr))
+    if not os.path.exists(os.path.join(media_path,timestr)):
+        os.mkdir(os.path.join(media_path,timestr))
     media_path_timestamp = os.path.join(media_path,timestr)
 
     return media_path_timestamp;
@@ -42,7 +43,8 @@ def home(request):
             uploaded_file_url = fs.url(filename)
             print("file uploaded to : ", uploaded_file_url)
 
-        processor.run();
+        self.anns = processor.run();
 
         return render(request, 'home.html',{})
+
     return render(request, 'home.html')

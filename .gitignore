@@ -4,3 +4,5 @@
 *.jpg
 test_html/*
 form-rendering-examples/*
+media/*
+app/media/*

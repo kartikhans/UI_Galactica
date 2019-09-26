@@ -123,4 +123,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT="/home/galactica/Galactica/Production/galactica_sat/staticfiles"
+STATIC_ROOT = "../staticfiles"
